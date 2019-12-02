@@ -1,7 +1,10 @@
+#!/usr/bin/python3
+
 import subprocess
 import sys
 sys.path.append('/home/pi/WUPHF')
 import text
+
 
 def main():
 
@@ -13,6 +16,7 @@ def main():
     ip = ifconfig[start:end]
 
     text.send_text('Pi running with IP: ' + ip)
+
 
 if __name__ == '__main__':
     main()

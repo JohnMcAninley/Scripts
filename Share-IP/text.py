@@ -1,20 +1,29 @@
+import sys
+import json
 from smtplib import SMTP_SSL
-
 from email.mime.text import MIMEText
+
+
+def read_cfg():
+    pass
+
 
 def send_text(msg_str):
     msg = MIMEText(msg_str)
 
     msg['Subject'] = ""
-    msg['From'] = "johnbert314@yahoo.com"
-    msg['To'] = "3014529198@vext.com"
+    msg['From'] = ""
+    msg['To'] = ""
 
-    server = SMTP_SSL('smtp.mail.yahoo.com')
+    server = SMTP_SSL('')
     server.ehlo()
-    server.login("johnbert314", "Buster314")
+    server.login("", "")
     text = msg.as_string()
-    server.sendmail("johnbert314@yahoo.com", "3014529198@vtext.com", text)
+    server.sendmail("", "", text)
     server.quit()
 
 if __name__ == "__main__":
-    send_text(str(sys.argv))
+    if len(sys.argv) > 1:
+        send_text(str(sys.argv[1]))
+    else:
+        print("usage: python text.py <msg>")
